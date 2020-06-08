@@ -1,0 +1,2 @@
+I think after commiting and pushing, execute
+npm run deploy
