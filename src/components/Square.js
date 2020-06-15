@@ -1,5 +1,12 @@
 import React  from 'react'
 import Piece from './Piece'
+import tile from '../img/tile.png'
+import flower from '../img/flower.png'
+import startY from '../img/start_yellow.png'
+import startG from '../img/start_green.png'
+import goalY from '../img/goal_yellow.png'
+import goalG from '../img/goal_yellow.png'
+
 
 function Square(props) {
     
@@ -7,27 +14,41 @@ function Square(props) {
 
     const handleClick = () => {
 
-        props.tSelect(props.id, props.occupied)
+        props.tSelect(props.id, props.occupied, props.hnum)
         
     }
     
     let bg_color = "grey"
+    let images = [tile, flower, startY, startG, goalY, goalG]
+    let img = images[0]
     let style = {
-        
+        backgroundImage: `url(../img/tile.png)`
     }
 
-    
-    
+    if (props.bg === "flower"){
+        img=flower
+    } else if(props.bg === "start_yellow"){
+        img=startY
+    } else if(props.bg === "start_green"){
+        img=startG
+    } else if(props.bg === "goal_yellow"){
+            img=goalY
+    } else if(props.bg === "goal_green"){
+            img=goalG
+    }
+
     t_selected = props.t_select[0] === props.id? true:false
     bg_color = t_selected? "blue":"grey"
     
+    //background: bg_color,
     style = {
-        background: bg_color
+        
+        backgroundImage: `url(${img})`
     }
     return (
         
         <div className={props.className} onClick={handleClick} style={style} >
-            {props.occupied === 0? props.content: <Piece player={props.occupied}/>}        
+            {props.occupied === 0? null: <Piece player={props.occupied}/>}        
         </div>
     )
 }

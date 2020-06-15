@@ -4,7 +4,7 @@ function HoldArea(props) {
     
     const handleClick = () => {
 
-        props.movePiece(props.id, props.occupied)
+        props.movePiece(props.id, props.occupied, props.hnum)
         
     }
 

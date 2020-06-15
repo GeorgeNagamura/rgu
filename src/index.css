@@ -8,6 +8,14 @@ body {
   background-color: #504545;
 }
 
+.ui{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+}
+
 .game_area{
   display: flex;
   width: 100%;
@@ -24,8 +32,8 @@ body {
 .safe_area{
   display: flex;
   flex-direction: column;
-  width: 100px;
-  height: 700px;
+  width: 75px;
+  height: 100%;
 }
 
 .board{
@@ -33,11 +41,26 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background-color: #f3f3f3;
+  background-color: #474242;
+}
+
+.dice_area{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  background-color: steelblue;
+}
+
+
+.btn{
+  height: 100%;
+  width: 80px;
 }
 
 .piece{
-  margin: 5px;
+  margin: 0;
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -55,6 +78,7 @@ body {
   border: solid black 1px;
   justify-content: center;
   align-items: center;
+  
 }
 
 .R1, .RM, .R2{
