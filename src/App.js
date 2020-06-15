@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import Game from './components/Game'
+import Board from './components/Board'
 
 export class App extends Component {
   render() {
     return (
       <div>
-        <Game />
+        <Board />
       </div>
     )
   }
 }
 
 export default App
+

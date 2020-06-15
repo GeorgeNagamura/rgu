@@ -1,23 +1,35 @@
-import React, { Component } from 'react'
+import React  from 'react'
+import Piece from './Piece'
 
-export class Square extends Component {
-    selectMove = () => {
-        console.log(this.props.hnum)
-        this.props.selectMove(this.props.hnum)
+function Square(props) {
+    
+    let t_selected = false 
+
+    const handleClick = () => {
+
+        props.tSelect(props.id, props.occupied)
+        
     }
     
-    render() {
-        return (
-            <div style={{height: "100px", 
-                        width: "100px", 
-                        backgroundColor: "beige", 
-                        border: "solid", 
-                        borderColor:"black"}} 
-                    onClick={this.selectMove.bind(this)}>
-                {this.props.occupied}
-            </div>
-        )
+    let bg_color = "grey"
+    let style = {
+        
     }
+
+    
+    
+    t_selected = props.t_select[0] === props.id? true:false
+    bg_color = t_selected? "blue":"grey"
+    
+    style = {
+        background: bg_color
+    }
+    return (
+        
+        <div className={props.className} onClick={handleClick} style={style} >
+            {props.occupied === 0? props.content: <Piece player={props.occupied}/>}        
+        </div>
+    )
 }
 
 export default Square

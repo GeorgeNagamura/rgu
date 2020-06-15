@@ -1,13 +1,70 @@
-body {
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #504545;
+}
+
+.game_area{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+
+.safe_area_holder{
+  display: flex;
+  padding: 3px;
+  background-color: darkblue;
+}
+
+.safe_area{
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: 700px;
+}
+
+.board{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: #f3f3f3;
+}
+
+.piece{
+  margin: 5px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: yellow;
+}
+
+.square{
+  display: flex;
+  margin: 2px;
+  width: 100px;
+  height: 100px;
+  border: solid black 1px;
+  justify-content: center;
+  align-items: center;
+}
+
+.R1, .RM, .R2{
+  display: flex;
+}
+
+.hold_area{
+  display: flex;
+  margin: 3px;
+  background-color: darkblue;
+  width: 700px;
+  height: 100px;
 }
