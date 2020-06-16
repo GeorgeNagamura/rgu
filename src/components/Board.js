@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import Piece from './Piece'
 import Square from './Square'
@@ -40,7 +41,8 @@ export class Board extends Component {
         return (
             safe[s_index].map( (v, i) => {
                 
-                return (v!==0? <div style={{   display: "flex",
+                return (v!==0? <div key={color+"safe"+i}
+                                    style={{   display: "flex",
                                         width: "75px",
                                         height: "75px",
                                         alignItems: "center",
@@ -70,13 +72,14 @@ export class Board extends Component {
         
         return (
             house.map( (v, i) => {
-                return (i !== check_select? <div style={{    display: "flex",
+                return (i !== check_select? <div    key={color+"house"+i}
+                                                    style={{    display: "flex",
                                         width: "100px",
                                         height: "100px",
                                         alignItems: "center",
                                         justifyContent: "center"
                                     }}><Piece id={color + 0} player={v}/></div>:
-                                        <div style={{    display: "flex",
+                                        <div key={color+"house"+i+"selected"} style={{    display: "flex",
                                         width: "100px",
                                         height: "100px",
                                         alignItems: "left",
@@ -262,12 +265,14 @@ export class Board extends Component {
                             
                             let saved_index = player === "1"? ysaved_copy : gsaved_copy
                             safe_copy[(parseInt(player)-1)][saved_index] = parseInt(player)
-                            player === "1"? ysaved_copy = ysaved_copy++:gsaved_copy++
+                            
+                            player === "1"? ysaved_copy = (ysaved_copy + 1):gsaved_copy = (gsaved_copy+ 1)
+                            
                             alert("Você salvou uma peça!")
                         } else if (hnum === 0) {
                             console.log("do nothing")
                         }
-
+                        //se for a casa 15
                         else if(!(id.substr(0, 2) !== "rm" && hnumber === "5") ){
                             
                             //se estiver na linha certa

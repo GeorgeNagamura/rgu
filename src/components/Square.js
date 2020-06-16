@@ -5,7 +5,7 @@ import flower from '../img/flower.png'
 import startY from '../img/start_yellow.png'
 import startG from '../img/start_green.png'
 import goalY from '../img/goal_yellow.png'
-import goalG from '../img/goal_yellow.png'
+import goalG from '../img/goal_green.png'
 
 
 function Square(props) {
@@ -18,7 +18,7 @@ function Square(props) {
         
     }
     
-    let bg_color = "grey"
+    let border = "solid 3px grey"
     let images = [tile, flower, startY, startG, goalY, goalG]
     let img = images[0]
     let style = {
@@ -38,12 +38,13 @@ function Square(props) {
     }
 
     t_selected = props.t_select[0] === props.id? true:false
-    bg_color = t_selected? "blue":"grey"
+    border = t_selected? "solid 3px red":"none"
     
     //background: bg_color,
     style = {
         
-        backgroundImage: `url(${img})`
+        backgroundImage: `url(${img})`,
+        border: border
     }
     return (
         
