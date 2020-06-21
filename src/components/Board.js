@@ -28,10 +28,19 @@ export class Board extends Component {
         turn: "2",
         src_hnum: null,
         dice_total_style: true,
-        history:["implementar mais para frente"]    
+        history:["implementar mais para frente"],
+        
     }
 
-    
+    componentDidMount(){
+        alert("Escolha uma cor para cada jogador - amarelo ou verde")
+        let random_int = this.getRandomInt(2)
+        let turn = random_int === 0? "1":"2"
+        this.setState({
+            turn: turn
+        }) 
+
+    }
 
     renderSafe = (color) => { 
         const safe = this.state.safe    
@@ -96,7 +105,7 @@ export class Board extends Component {
         let t_select_copy = [...this.state.t_select]
         
         let source_copy = []
-        console.log(this.state.status["r1"])
+        
         const yhouse = this.state.yhouse
         const ghouse = this.state.ghouse
         let piece_placed = false
@@ -457,7 +466,7 @@ export class Board extends Component {
                                     children={this.renderHold("gh")}
                                     movePiece = {this.movePiece}
                                     id={"gh0"}
-                                    occupied = {this.state.yhouse.length === 0? 0:2}
+                                    occupied = {this.state.ghouse.length === 0? 0:2}
                                     hnum={0}></HoldArea>
                     </div>
                     <div className="safe_area_holder">
@@ -498,7 +507,15 @@ export class Board extends Component {
                     })
                 return    alert("Que pena! Você tirou zero. Passe a vez")
             }
+            if (this.state.gsaved === 7){
+                alert("Parabéns, jogador 2! Você venceu a partida! Atualize o navegador (apertando f5) para jogar de novo.")
+
+            } else if (this.state.ysaved === 7){
+                alert("Parabéns, jogador 1! Você venceu a partida! Atualize o navegador (apertando f5) para jogar de novo.")
+
+            }
         }, 700 )
+
     }
 
     //tools

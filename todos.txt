@@ -1,0 +1,11 @@
+rgu to do list
+
+bugs:
+
+quando a casa amarela fica vazia, não é possível selecionar da casa verde
+
+
+features:
+seleção do turno 1 aleatória
+fim de jogo
+instruções
